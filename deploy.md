@@ -79,3 +79,32 @@ docker rm -f deamon-ethpos-docker-validator-1
 
 rm -fr basicconfig/validator*
 ```
+
+### 启动验证者-harbor 
+1.导入或者新建助记词
+```
+docker-compose -f docker-compose-harbor.yml run staking-cli existing-mnemonic --mnemonic "xxx xxx xxx ..."
+```
+或者
+```
+docker-compose -f docker-compose-harbor.yml run staking-cli new-mnemonic
+```
+2.初始化验证者
+```
+docker-compose -f docker-compose-base-harbor.yml run beaconbase validator_init.sh
+```
+3.启动验证者
+```
+docker-compose -f docker-compose-harbor.yml up -d validator
+```
+4. 停止validator
+```
+docker stop deamon-ethpos-docker-validator-1
+```
+
+5. 清理，注意保存助记词
+```
+docker rm -f deamon-ethpos-docker-validator-1
+
+rm -fr basicconfig/validator*
+```
