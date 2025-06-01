@@ -6,7 +6,7 @@
 ```
 bash docker-build.sh
 ```
-
+ 
 #### 链一键启动
 - 执行 bash start-beaconchain.sh
 - 执行成功，geth数据目录execution、日志文件execution-data/ETH.log，beacon-chain数据目录consensus、日志文件consensus-data/BEACON.log
