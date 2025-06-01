@@ -1,5 +1,6 @@
 ### Step1 open TCP/UDP port
-  - 8551:8551                        eth  authenticated API
+  - 8551:8551
+  - test                eth  authenticated API
   - 8545:8545                        eth http 
   - 30303:30303 udp/tcp              eth p2p
   - 3500:3500                        beacon's http 
