@@ -1,4 +1,4 @@
-
+ 
 #### 制作docker镜像，只用运行一次
 - 修改config.yml，EXT_IP，设置外网ip
 - 修改config.yml,ENV_BEACON_RPC，指定beacon rpc的ip:端口
@@ -41,6 +41,31 @@ rm -fr execution/*
 ```
 docker rm -f deamon-ethpos-docker-beacon-1
 rm -fr consensus/*
+```
+#### 验证者启动-harbor 
+1.导入助记词
+```
+docker-compose -f docker-compose-harbor.yml run staking-cli existing-mnemonic --mnemonic "xxx xxx xxx ..."
+```
+2.初始化validator
+```
+docker-compose -f docker-compose-base-harbor.yml run beaconbase validator_init.sh
+```
+3. 启动validator
+```
+docker-compose -f docker-compose-harbor.yml up -d validator
+```
+
+4. 停止validator
+```
+docker stop deamon-ethpos-docker-validator-1
+```
+
+5. 清理，注意保存助记词
+```
+docker rm -f deamon-ethpos-docker-validator-1
+
+rm -fr basicconfig/validator*
 ```
 
 #### 验证者程序一键启动
